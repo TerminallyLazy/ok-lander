@@ -54,25 +54,25 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-primary">
+              <div className="flex h-16 w-16 items-center justify-center rounded-lg ">
                 <Image src="/OKdarkTsp.png" alt="Our Kidz" width={200} height={200} />
               </div>
-              <span className="text-md font-space-grotesk font-extralight">our kidz</span>
+              <span className="font-space-grotesk text-sm font-light">our kidz</span>
             </div>
-            <p className="text-muted-foreground max-w-sm">
+            <p className="text-muted-foreground font-inter text-md font-extralight max-w-sm">
               AI-powered pediatric care platform empowering parents with trusted guidance
               and secure health tracking for their children.
             </p>
             <div className="space-y-2">
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2 text-sm font-inter font-light text-muted-foreground">
                 <Mail className="h-4 w-4" />
                 <span>info@our-kidz.com</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2 text-sm font-inter font-light text-muted-foreground">
                 <Phone className="h-4 w-4" />
                 <span>1-800-OUR-KIDZ</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2 text-sm font-inter font-light text-muted-foreground">
                 <MapPin className="h-4 w-4" />
                 <span>Boise, ID</span>
               </div>
