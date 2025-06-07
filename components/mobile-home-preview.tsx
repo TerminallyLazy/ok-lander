@@ -4,11 +4,13 @@ import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight, User, Menu, Mic, Wifi, Battery, Signal } from "lucide-react"
+import { useGeminiLive } from "@/hooks/use-gemini-live"
 
 export default function MobileHomePreview() {
   // Carousel state
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isRecording, setIsRecording] = useState(false)
+  const { start, stop, isStreaming } = useGeminiLive()
 
   const slides = [
     {
@@ -51,7 +53,13 @@ export default function MobileHomePreview() {
   }, [nextSlide])
 
   const handleMicClick = () => {
-    setIsRecording(!isRecording)
+    if (isStreaming) {
+      stop()
+      setIsRecording(false)
+    } else {
+      start()
+      setIsRecording(true)
+    }
   }
 
   return (
@@ -186,7 +194,7 @@ export default function MobileHomePreview() {
                 >
                   <Mic className="w-6 h-6 text-white" />
                 </button>
-                <p className="text-gray-500 text-xs mt-2">{isRecording ? "Recording…" : "(≤10 sec)"}</p>
+                <p className="text-gray-500 text-xs mt-2">{isStreaming ? "Recording…" : "(≤10 sec)"}</p>
               </div>
 
               {/* Email capture card */}
