@@ -30,28 +30,28 @@ export function CTASection() {
     }
   }
 
-
+//#030712
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 via-background to-primary/5">
+    <section className="py-24  ">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 font-inter font-light space-y-4">
-            <Badge variant="outline" className="mb-4 bg-[#14b8a6] text-white w-fit h-14 mx-auto px-10 text-lg border-[#14b8a6] ">
+          <div className="text-center mb-12 font-inter font-light gradient-to-r from-teal-500 to-blue-400 space-y-4">
+            <Badge variant="outline" className="mb-4 w-fit h-8 mx-auto px-10 text-md bg-gradient-to-r from-teal-500 to-blue-400 font-inter font-medium">
               Try It Now
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-inter font-light tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-inter font-light tracking-tight">
               Experience AI-Powered Pediatric Care
             </h2>
-            <p className="text-lg text-muted-foreground font-inter font-light max-w-2xl mx-auto">
+            <p className="text-muted-foreground font-inter font-light max-w-3xl mx-auto leading-relaxed mb-10">
               Just speak your question and get AI-powered answers in seconds. 
               No appointment needed.
             </p>
           </div>
 
           {/* Voice Demo */}
-          <Card className="mb-12 border-primary/20 bg-gradient-to-r from-primary/5 to-transparent hover:border-[#14b8a6] hover:border-2 transition-all">
+          <Card className="mb-10 hover:border-2 border-gradient-to-r from-teal-500 to-blue-400 shadow-2xl shadow-teal-500/40 hover:shadow-teal-500/60">
             <CardHeader className="text-center font-inter font-tight font-light">
               <CardTitle className="text-xl font-inter font-light">Try it now — just speak your question</CardTitle>
               <CardDescription className="font-inter font-light">
@@ -64,7 +64,7 @@ export function CTASection() {
                 {showVoiceAgent && (
                   <div className="absolute inset-0 z-10">
                     {/* Circular ring around the mic button */}
-                    <div className="absolute inset-0 w-32 h-32 -m-6 rounded-full bg-white/10 backdrop-blur-[1px] border border-white/20">
+                    <div className="absolute inset-0 w-32 h-32 mb-20 rounded-full bg-white/10 backdrop-blur-[1px] border border-white/20">
                       <iframe
                         src="https://mae-voice-agent-59842878478.us-west1.run.app/"
                         className="w-full h-full border-0 rounded-full opacity-80"
@@ -110,7 +110,7 @@ export function CTASection() {
                   {showVoiceAgent ? "🎤 Listening..." : "Click to start voice demo"}
                 </p>
                 {!showVoiceAgent && (
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm font-inter font-light text-muted-foreground">
                     Experience our AI-powered pediatric voice assistant
                   </p>
                 )}
@@ -119,7 +119,7 @@ export function CTASection() {
           </Card>
 
           {/* Email Capture */}
-          <Card className="mb-100 font-inter font-light bg-gradient-to-r from-primary/10 to-transparent group-hover:text-primary hover:border-[#14b8a6] hover:border-2 transition-colors">
+          <Card className="mb-96 hover:border-2 border-gradient-to-r from-teal-500 to-blue-400 shadow-2xl shadow-teal-500/40 hover:shadow-teal-500/60">
             <CardHeader className="text-center font-inter font-light">
               <CardTitle className="font-inter font-light">Get Your AI-Powered Answer</CardTitle>
               <CardDescription>
@@ -154,20 +154,20 @@ export function CTASection() {
           </Card>
 
           {/* Waitlist CTA */}
-          <Card className="border-primary/20 bg-gradient-to-r from-primary/10 to-transparent group-hover:text-primary hover:border-[#14b8a6] hover:border-2 transition-colors">
+          <Card className="mb-10 hover:border-2 border-gradient-to-r from-teal-500 to-blue-400 shadow-2xl shadow-teal-500/40 hover:shadow-teal-500/60">
             <CardContent className="text-center py-12 space-y-6">
               <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-inter font-medium">
+                <h3 className="text-2xl font-inter font-light">
                   Join Our Early Access Program
                 </h3>
-                <p className="text-md text-muted-foreground font-inter font-light max-w-2xl mx-auto">
+                <p className="text-sm text-muted-foreground font-inter font-light max-w-2xl mx-auto">
                   Be among the first 5,000 families to experience the future of pediatric care. 
                   Get 3 months premium access completely free.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="text-lg px-8 btn-healthcare bg-[#cbfbf1] font-medium text-black">
+                <Button asChild size="lg" className="text-md px-8 btn-healthcare bg-[#cbfbf1] font-inter font-medium text-black">
                   <Link href="/early-access">
                     Join Early Access
                   </Link>
@@ -180,7 +180,7 @@ export function CTASection() {
               </div>
               
               <div className="pt-4">
-                <Badge variant="destructive" className="text-sm font-inter font-medium">
+                <Badge variant="destructive" className="text-sm bg-gradient-to-r from-teal-500 to-blue-400 font-inter font-medium">
                   First 5,000 get 3 months premium free
                 </Badge>
               </div>

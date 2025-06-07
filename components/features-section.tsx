@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { Separator } from "@radix-ui/react-separator"
 
 const features = [
   {
@@ -61,38 +62,42 @@ const stats = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/20">
+    <section className="py-56 mb-10">
       <div className="container mx-auto px-4">
         {/* Header */}
 
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-inter text-center mb-8 font-light tracking-tight">
+          <h2 className="text-2xl md:text-3xl font-inter font-light tracking-tight text-center mb-5">
             When the System Falls Short, Parents Look Elsewhere
           </h2>
-          <p className="text-lg text-center text-muted-foreground font-inter font-light max-w-3xl mb-30 mx-auto leading-relaxed">
+          <p className="text-center text-muted-foreground font-inter font-light max-w-3xl mb-16 mx-auto leading-relaxed">
             40% of us turn to friends for advice. Over half of us search the internet first. And pediatricians are getting harder to reach. That's why we built Our Kidz—your smarter, calmer, always-there front door to pediatric care.
           </p>
+
+          <div className="flex flex-col items-center justify-center">
           <div className="text-center space-y-4">
-          <Badge variant="outline" className="bg-primary/10 text-lg text-white bg-[#14b8a6] w-fit h-14 mx-auto px-10 mb-10 border-[#14b8a6] ">
+          <Badge variant="outline" className="bg-gradient-to-r from-teal-500 to-blue-400 text-white w-fit h-8 mx-auto px-10 mb-10 text-md border-gradient-to-r from-teal-500 to-blue-400 font-inter font-medium">
             Why Choose Our Kidz
           </Badge>
 
 
-          <div className="flex flex-col items-center justify-center mb-3"></div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-inter font-light tracking-tight">
+          <div className="flex flex-col items-center justify-center"></div>
+          <h2 className="text-2xl md:text-3xl font-inter font-light tracking-tight">
             AI Pediatric Care, Personalized for Your Child
           </h2>
-          <p className="text-lg text-muted-foreground font-inter font-light max-w-3xl mb-30 mx-auto leading-relaxed">
+          </div>
+          <div className="flex flex-col items-center justify-center">
+          <p className="text-muted-foreground font-inter font-light text-center max-w-3xl mx-auto leading-relaxed mb-10">
             Built from the ground up, Our Kidz uses proprietary pediatric AI to recognize symptoms, 
             deliver trusted guidance, and connect you to care—all in a heartbeat.
           </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-56 mt-20 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white to-teal-500 text-transparent bg-clip-text">
                 {stat.value}
               </div>
               <div className="text-sm text-muted-foreground">
@@ -107,10 +112,10 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group healthcare-card"
+              className="group healthcare-card hover:border-2 hover:border-teal-500 hover:border-2"
             >
               <CardHeader className="space-y-4 ">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between ">
                   <div className={`w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center ${feature.color}`}>
                     <feature.icon className="h-6 w-6" />
                   </div>
@@ -132,8 +137,8 @@ export function FeaturesSection() {
         </div>
 
         {/* CTA */}
-        <div className="mb-100 text-center">
-          <div className="inline-flex flex-col sm:flex-row gap-4">
+        <div className="mb-20 text-center">
+          {/* <div className="inline-flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="btn-healthcare bg-[#cbfbf1] text-black">
               <Link href="/products">
                 Explore Features
@@ -144,7 +149,8 @@ export function FeaturesSection() {
                 Schedule Demo
               </Link>
             </Button>
-          </div>
+          </div> */}
+        </div>
         </div>
       </div>
     </section>

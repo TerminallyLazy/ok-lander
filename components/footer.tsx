@@ -48,18 +48,18 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-muted/30 border-t border-border border-[#14b8a6]">
-      <div className="container mx-auto px-4 py-16">
+    <footer className="border-t border-teal-500 gradient-to-r from-teal-500 to-blue-600">
+      <div className="container mx-auto px-4 py-16 ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 font-inter font-light">
               <div className="flex h-16 w-16 items-center justify-center rounded-lg ">
                 <Image src="/OKdarkTsp.png" alt="Our Kidz" width={200} height={200} />
               </div>
               <span className="font-space-grotesk text-sm font-light">our kidz</span>
             </div>
-            <p className="text-muted-foreground font-inter text-md font-extralight max-w-sm">
+            <p className="text-muted-foreground font-inter font-light max-w-sm text-sm">
               AI-powered pediatric care platform empowering parents with trusted guidance
               and secure health tracking for their children.
             </p>
@@ -152,10 +152,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-8  bg-gradient-to-r from-teal-500 to-blue-400 " />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 ">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 text-sm text-muted-foreground">
             <span>© 2025 Our Kidz. All rights reserved.</span>
             <span className="hidden md:inline">•</span>
