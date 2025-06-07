@@ -8,14 +8,17 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { useGeminiLive } from "@/hooks/use-gemini-live"
 
 export function CTASection() {
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [showVoiceAgent, setShowVoiceAgent] = useState(false)
+  const { start, stop, isStreaming, transcript } = useGeminiLive()
 
   const handleMicClick = () => {
     setShowVoiceAgent(true)
+    start()
   }
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -62,35 +65,26 @@ export function CTASection() {
               <div className="relative">
                 {/* Ring-shaped Voice Agent Overlay */}
                 {showVoiceAgent && (
-                  <div className="absolute inset-0 z-10">
-                    {/* Circular ring around the mic button */}
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
                     <div className="absolute inset-0 w-32 h-32 mb-20 rounded-full bg-white/10 backdrop-blur-[1px] border border-white/20">
-                      <iframe
-                        src="https://mae-voice-agent-59842878478.us-west1.run.app/"
-                        className="w-full h-full border-0 rounded-full opacity-80"
-                        title="Voice Assistant"
-                        allow="microphone; camera; autoplay; encrypted-media"
-                        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-                        style={{
-                          backgroundColor: 'transparent',
-                          mixBlendMode: 'overlay',
-                          clipPath: 'circle(50% at 50% 50%)'
-                        }}
-                      />
-
-                      {/* Inner cutout to show the mic button */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm"></div>
+                        <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm" />
                       </div>
                     </div>
-
-                    {/* Tiny close button */}
                     <button
-                      onClick={() => setShowVoiceAgent(false)}
+                      onClick={() => {
+                        setShowVoiceAgent(false)
+                        stop()
+                      }}
                       className="absolute -top-2 -right-2 w-5 h-5 bg-black/30 hover:bg-black/50 text-white rounded-full text-xs flex items-center justify-center transition-all opacity-50 hover:opacity-100 z-20"
                     >
                       ×
                     </button>
+                    {transcript && (
+                      <div className="absolute bottom-0 left-0 right-0 text-center text-xs text-white p-1 bg-black/50 rounded">
+                        {transcript}
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -107,7 +101,7 @@ export function CTASection() {
 
               <div className="text-center space-y-2">
                 <p className="text-sm text-muted-foreground">
-                  {showVoiceAgent ? "🎤 Listening..." : "Click to start voice demo"}
+                  {isStreaming ? "🎤 Listening..." : "Click to start voice demo"}
                 </p>
                 {!showVoiceAgent && (
                   <p className="text-sm font-inter font-light text-muted-foreground">
